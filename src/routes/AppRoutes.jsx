@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import TodoListPage from '../pages/TodoListPage/TodoListPage'
+import SignupPage from '../pages/SignupPage/SignupPage'
+import LoginPage from '../pages/LoginPage/LoginPage'
 
 const AppRoutes = () => {
 
@@ -8,8 +10,8 @@ const AppRoutes = () => {
         <Routes>
             <Route path='/' element={<TodoListPage />} />
             <Route path='/profile' element={<h1>PROFILE</h1>} />
-            <Route path='/register' element={<h1>REGISTER</h1>} />
-            <Route path='/login' element={<h1>LOGIN</h1>} />
+            <Route path='/register' element={<SignupPage />} />
+            <Route path='/login' element={<LoginPage />} />
             <Route path='*' element={<h1>404</h1>} />
         </Routes>
     )
