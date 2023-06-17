@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import todoService from "../../services/todo.services";
 
@@ -6,6 +6,10 @@ const Todos = ({ task, _id, fetchTodo, completed }) => {
     const [editing, setEditing] = useState(false);
     const [updatedTask, setUpdatedTask] = useState(task);
     const [isCompleted, setIsCompleted] = useState(completed);
+
+    useEffect(() => {
+        setIsCompleted(completed);
+    }, [completed]);
 
     const handleToggleCompleted = () => {
         const updatedCompletedStatus = !isCompleted;

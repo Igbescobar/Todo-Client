@@ -16,8 +16,8 @@ class TodoService {
         return this.api.post('/saveTodo', todoData)
     }
 
-    editTodo(todo_id, editedTodoData) {
-        return this.api.put(`${todo_id}/edit`, editedTodoData)
+    editTodo(todo_id, updatedData) {
+        return this.api.put(`${todo_id}/edit`, updatedData)
     }
 
     deleteTodo(todo_id) {
