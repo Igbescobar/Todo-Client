@@ -8,12 +8,12 @@ class TodoService {
         })
     }
 
-    getTodo() {
-        return this.api.get('/getAllTodos')
+    getTodo(user_id) {
+        return this.api.get(`/getAllTodos`)
     }
 
-    saveTodo(todoData) {
-        return this.api.post('/saveTodo', todoData)
+    saveTodo(user_id, todoData) {
+        return this.api.post(`/${user_id}/saveTodo`, todoData)
     }
 
     editTodo(todo_id, updatedData) {

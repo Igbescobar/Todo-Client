@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import todoService from "../../services/todo.services"
+import { AuthContext } from "../../contexts/auth.context"
 
 const TodoForm = ({ fetchTodo }) => {
 
@@ -8,6 +9,8 @@ const TodoForm = ({ fetchTodo }) => {
         task: '',
         status: 'pending'
     })
+
+    const { user } = useContext(AuthContext)
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -17,13 +20,15 @@ const TodoForm = ({ fetchTodo }) => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        todoService
-            .saveTodo(todoData)
-            .then(() => {
-                fetchTodo()
-                setTodoData({ task: '' })
-            })
-            .catch(err => console.log(err))
+        if (user) {
+            todoService
+                .saveTodo(user._id, todoData)
+                .then(() => {
+                    fetchTodo()
+                    setTodoData({ task: '' })
+                })
+                .catch(err => console.log(err))
+        }
     }
 
     return (
