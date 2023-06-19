@@ -9,7 +9,7 @@ class TodoService {
     }
 
     getTodo(user_id) {
-        return this.api.get(`/getAllTodos`)
+        return this.api.get(`/${user_id}/getAllTodos`)
     }
 
     saveTodo(user_id, todoData) {
