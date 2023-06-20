@@ -13,7 +13,7 @@ const TodoListPage = () => {
 
     useEffect(() => {
         fetchTodo()
-    }, [])
+    }, [user])
 
     const fetchTodo = () => {
         if (user) {
